@@ -1,0 +1,43 @@
+{
+    "name": "webspilka/flash-alert",
+    "description": "Store flash alerts with options for Laravel 5.* easy notification",
+    "keywords": ["flash alert", "toastr", "notification", "laravel", "php"],
+    "homepage": "https://github.com/webspilka/flash-alert",
+    "type":    "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vitaliy Tsymbaliuk",
+            "email": "webspilka@gmail.com",
+            "homepage": "http://webspilka.com",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": ">=5.0.0",
+        "illuminate/session": ">=5.0.0"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Webspilka\\FlashAlert\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Webspilka\\FlashAlert\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webspilka\\FlashAlert\\FlashAlertServiceProvider"
+            ],
+            "aliases": {
+                "FlashAlert": "Webspilka\\FlashAlert\\Facades\\FlashAlert"
+            }
+        }
+    }
+}
