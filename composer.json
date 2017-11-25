@@ -36,7 +36,7 @@
                 "Webspilka\\FlashAlert\\FlashAlertServiceProvider"
             ],
             "aliases": {
-                "FlashAlert": "Webspilka\\FlashAlert\\Facades\\FlashAlert"
+                "FlashAlert": "Webspilka\\FlashAlert\\FlashAlertFacade"
             }
         }
     }
