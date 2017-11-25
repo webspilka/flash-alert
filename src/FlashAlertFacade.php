@@ -10,8 +10,8 @@ class FlashAlertFacade extends Facade {
      * @return string
      */
     protected static function getFacadeAccessor() { 
-        return 'flashalert';
-        //return FlashAlert::class; 
+        // return 'flashalert';
+        return FlashAlert::class; 
         
     }
 

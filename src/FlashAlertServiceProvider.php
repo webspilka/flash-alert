@@ -32,7 +32,8 @@ class FlashAlertServiceProvider extends ServiceProvider {
             return new FlashAlert($app['session'], $app['config']);
         });
 
-        $this->app->alias(FlashAlert::class, 'flashalert');
+        // $this->app->alias(FlashAlert::class, 'flashalert');
+        // $this->app->alias(FlashAlert::class, 'FlashAlert');
     }
     /**
      * Get the services provided by the provider.
@@ -41,8 +42,9 @@ class FlashAlertServiceProvider extends ServiceProvider {
      */
     public function provides()
     {
-        return ['flashalert'];
-        //return [FlashAlert::class];
+        // return ['flashalert'];
+        // return ['flashalert', FlashAlert::class];
+        return [FlashAlert::class];
     }
 
 }
