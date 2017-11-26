@@ -67,7 +67,7 @@ class FlashAlert {
             }
 
             // FlashAlert output
-            $output .= 'flashalert.' . $notification['type'] . "('" . str_replace("'", "\\'", str_replace(['&lt;', '&gt;'], ['<', '>'], e($notification['message']))) . "'" . (isset($notification['title']) ? ", '" . str_replace("'", "\\'", htmlentities($notification['title'])) . "'" : null) . ');';
+            $output .= 'flashalert.' . $notification['type'] . "('" . str_replace("'", "\\'", str_replace(['&lt;', '&gt;'], ['<', '>'], e($notification['text']))) . "'" . (isset($notification['title']) ? ", '" . str_replace("'", "\\'", htmlentities($notification['title'])) . "'" : null) . ');';
         }
         $output .= '</script>';
 
@@ -79,20 +79,20 @@ class FlashAlert {
      * Add a notification
      *
      * @param string $type Could be error, info, success, or warning.
-     * @param string $message The notification's message
+     * @param string $text The notification's text
      * @param string $title The notification's title
      *
      * @return bool Returns whether the notification was successfully added or 
      * not.
      */
-    public function add($type, $message, $title = null,$options = []) {
+    public function add($type, $text, $title = null,$options = []) {
         $allowedTypes = ['error', 'info', 'success', 'warning'];
         if(!in_array($type, $allowedTypes)) return false;
 
         $this->notifications[] = [
             'type' => $type,
             'title' => $title,
-            'message' => $message,
+            'text' => $text,
             'options' => $options
         ];
 
@@ -103,41 +103,41 @@ class FlashAlert {
     /**
      * Shortcut for adding an info notification
      *
-     * @param string $message The notification's message
+     * @param string $text The notification's text
      * @param string $title The notification's title
      */
-    public function info($message, $title = null, $options = []) {
-        $this->add('info', $message, $title, $options);
+    public function info($text, $title = null, $options = []) {
+        $this->add('info', $text, $title, $options);
     }
 
     /**
      * Shortcut for adding an error notification
      *
-     * @param string $message The notification's message
+     * @param string $text The notification's text
      * @param string $title The notification's title
      */
-    public function error($message, $title = null, $options = []) {
-        $this->add('error', $message, $title, $options);
+    public function error($text, $title = null, $options = []) {
+        $this->add('error', $text, $title, $options);
     }
 
     /**
      * Shortcut for adding a warning notification
      *
-     * @param string $message The notification's message
+     * @param string $text The notification's text
      * @param string $title The notification's title
      */
-    public function warning($message, $title = null, $options = []) {
-        $this->add('warning', $message, $title, $options);
+    public function warning($text, $title = null, $options = []) {
+        $this->add('warning', $text, $title, $options);
     }
 
     /**
      * Shortcut for adding a success notification
      *
-     * @param string $message The notification's message
+     * @param string $text The notification's text
      * @param string $title The notification's title
      */
-    public function success($message, $title = null, $options = []) {
-        $this->add('success', $message, $title, $options);
+    public function success($text, $title = null, $options = []) {
+        $this->add('success', $text, $title, $options);
     }
 
     /**
