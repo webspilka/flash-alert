@@ -148,4 +148,10 @@ class FlashAlert {
         $this->session->forget('flash::alerts');
     }
 
+    public function get() {
+        return $this->session->has('flash::alerts') ? $this->session->get('flash::alerts') : [];
+    }
+
+
+
 }
